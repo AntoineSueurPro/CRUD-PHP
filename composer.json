@@ -1,0 +1,6 @@
+
+{
+  "autoload": {
+    "psr-4": {"projet_4\\src\\": "src/"}
+  }
+}
