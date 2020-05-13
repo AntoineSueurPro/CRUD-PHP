@@ -1,6 +1,9 @@
 
 {
   "autoload": {
-    "psr-4": {"projet_4\\src\\": "src/"}
+    "psr-4": {
+      "projet_4\\src\\": "src/",
+      "projet_4\\config\\":"config/"
+    }
   }
 }
