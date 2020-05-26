@@ -1,10 +1,12 @@
 <?php
+
 namespace projet_4\src\DAO;
+
 use projet_4\src\model\Article;
 
-class ArticleDAO extends DAO {
-
-  private function buildObject($row)
+class ArticleDAO extends DAO
+{
+    private function buildObject($row)
     {
         $article = new Article();
         $article->setId($row['id']);
@@ -16,23 +18,32 @@ class ArticleDAO extends DAO {
     }
 
     public function getArticles()
-        {
-            $sql = 'SELECT id, title, content, author, createdAt FROM article ORDER BY id DESC';
-            $result = $this->createQuery($sql);
-            $articles = [];
-            foreach ($result as $row){
-                $articleId = $row['id'];
-                $articles[$articleId] = $this->buildObject($row);
-            }
-            $result->closeCursor();
-            return $articles;
+    {
+        $sql = 'SELECT id, title, content, author, createdAt FROM article ORDER BY id DESC';
+        $result = $this->createQuery($sql);
+        $articles = [];
+        foreach ($result as $row){
+            $articleId = $row['id'];
+            $articles[$articleId] = $this->buildObject($row);
         }
-    public function getArticle($articleId) {
+        $result->closeCursor();
+        return $articles;
+    }
 
-          $sql = 'SELECT id, title, content, author, createdAt FROM article WHERE id = ?';
-          $result = $this->createQuery($sql, [$articleId]);
-          $article = $result->fetch();
-          $result->closeCursor();
-          return $this->buildObject($article);
-          }
-       }
+    public function getArticle($articleId)
+    {
+        $sql = 'SELECT id, title, content, author, createdAt FROM article WHERE id = ?';
+        $result = $this->createQuery($sql, [$articleId]);
+        $article = $result->fetch();
+        $result->closeCursor();
+        return $this->buildObject($article);
+    }
+
+    public function addArticle($article)
+    {
+        //Permet de récupérer les variables $title, $content et $author
+        extract($article);
+        $sql = 'INSERT INTO article (title, content, author, createdAt) VALUES (?, ?, ?, NOW())';
+        $this->createQuery($sql, [$title, $content, $author]);
+    }
+}
