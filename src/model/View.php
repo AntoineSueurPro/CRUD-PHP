@@ -1,10 +1,18 @@
 <?php
 namespace projet_4\src\model;
+use projet_4\config\Request;
 
 class View
 {
     private $file;
     private $title;
+    private $request;
+    private $session;
+
+    public function __construct() {
+      $this->request = new Request();
+      $this->session = $this->request->getSession();
+    }
 
     public function render($template, $data = [])
     {
@@ -12,7 +20,8 @@ class View
         $content  = $this->renderFile($this->file, $data);
         $view = $this->renderFile('../templates/base.php', [
             'title' => $this->title,
-            'content' => $content
+            'content' => $content,
+            'session' =>$this->session
         ]);
         echo $view;
     }
