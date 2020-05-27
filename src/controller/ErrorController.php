@@ -9,6 +9,6 @@ class ErrorController extends Controller {
   }
 
   public function errorServer() {
-    return this->view->render('error_500');
+    return $this->view->render('error_500');
   }
 }

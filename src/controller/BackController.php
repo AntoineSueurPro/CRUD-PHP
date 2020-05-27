@@ -10,6 +10,6 @@ class BackController extends Controller {
       $this->articleDAO->addArticle($post);
       header ('Location: ../public/index.php');
     }
-    return $this->view->render('add_article'['post' => $post]);
+    return $this->view->render('add_article', ['post' => $post]);
   }
 }
