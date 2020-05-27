@@ -1,14 +1,15 @@
 <?php
-
 namespace projet_4\src\controller;
+
+use projet_4\config\Parameter;
 
 class BackController extends Controller {
 
-  public function addArticle($post) {
+  public function addArticle(Parameter $post) {
 
-    if(isset($post['submit'])) {
+    if($post->get('submit')) {
       $this->articleDAO->addArticle($post);
-      header ('Location: ../public/index.php');
+      header('Location: ../public/index.php');
     }
     return $this->view->render('add_article', ['post' => $post]);
   }
