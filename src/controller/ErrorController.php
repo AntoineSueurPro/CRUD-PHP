@@ -2,13 +2,13 @@
 
 namespace projet_4\src\controller;
 
-class ErrorController {
+class ErrorController extends Controller {
 
   public function errorNotFound() {
-    echo "ERROR 404 NOT FOUND";
+    return $this->view->render('error_404');
   }
 
   public function errorServer() {
-    echo "ERROR 405 SERVER";
+    return this->view->render('error_500');
   }
 }
