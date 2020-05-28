@@ -1,6 +1,7 @@
 <?php
 namespace projet_4\src\DAO;
 use projet_4\src\model\Comment;
+use projet_4\config\Parameter;
 
 class CommentDAO extends DAO
 {
@@ -25,5 +26,10 @@ class CommentDAO extends DAO
         }
         $result->closeCursor();
         return $comments;
+    }
+
+    public function addComment(Parameter $post, $articleId) {
+      $sql = 'INSERT INTO comment (pseudo, content, createdAt, article_id) VALUES (?,?,NOW(), ?)';
+      $this->createQuery($sql, [$post->get('pseudo'), $post->get('content'),$articleId]);
     }
 }
