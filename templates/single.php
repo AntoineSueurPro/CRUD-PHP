@@ -25,7 +25,18 @@
         <p><?= htmlspecialchars($comment->getContent());?></p>
         <p>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
         <p><a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a></p>
-        <br>
+        <?php
+        if($comment->isFlag()) {
+          ?>
+          <p>Ce commentaire est déjà signalé</p>
+          <?php
+        }
+        else {
+          ?>
+          <p><a href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
+          <?php
+        }
+        ?>
         <?php
     }
     ?>

@@ -8,6 +8,15 @@ class Comment
     private $pseudo;
     private $content;
     private $createdAt;
+    private $flag;
+
+    public function isFlag() {
+      return $this->flag;
+    }
+
+    public function setFlag($flag) {
+      $this->flag = $flag;
+    }
 
     public function getId()
     {
