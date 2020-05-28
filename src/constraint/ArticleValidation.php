@@ -2,7 +2,7 @@
 namespace projet_4\src\constraint;
 use projet_4\config\Parameter;
 
-class ArticleValidation {
+class ArticleValidation extends Validation {
 
   private $errors = [];
   private $constraint;
