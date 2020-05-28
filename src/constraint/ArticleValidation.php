@@ -38,7 +38,7 @@ class ArticleValidation extends Validation {
   private function addError($name, $error) {
 
     if($error) {
-      $this->error+=[$name => $error];
+      $this->errors += [$name => $error];
     }
   }
 
@@ -52,8 +52,8 @@ class ArticleValidation extends Validation {
       return $this->constraint->minLenght('titre', $value, 2);
     }
 
-    if ($this->constraint*>maxLenght($name, $value, 255)) {
-      return $this->constraint->maxLenght('titre', $value, 255);
+    if ($this->constraint->maxLength($name, $value, 255)) {
+      return $this->constraint->maxLength('titre', $value, 255);
     }
   }
 
@@ -63,7 +63,7 @@ class ArticleValidation extends Validation {
       return $this->constraint->notBlank('contenu', $value);
     }
 
-    if ($this->constraint->minLenght($name, $value, 2)) {
+    if ($this->constraint->minLength($name, $value, 2)) {
       return $this->constraint->minLength('contenu', $value, 2);
     }
   }
@@ -74,11 +74,11 @@ class ArticleValidation extends Validation {
     }
 
     if ($this->constraint->minLength($name, $value, 2)) {
-      return $this->constraint->minLenght('auteur', $value, 2);
+      return $this->constraint->minLength('auteur', $value, 2);
     }
 
-    if ($this->constraint*>maxLenght($name, $value, 255)) {
-      return $this->constraint->maxLenght('auteur', $value, 255);
+    if ($this->constraint->maxLength($name, $value, 255)) {
+      return $this->constraint->maxLength('auteur', $value, 255);
     }
   }
 }
