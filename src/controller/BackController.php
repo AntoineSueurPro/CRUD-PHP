@@ -39,4 +39,10 @@ class BackController extends Controller {
     $post->set('author', $article->getAuthor());
     return $this->view->render('edit_article', ['post' => $post]);
   }
+
+  public function deleteArticle($articleId) {
+    $this->articleDAO->deleteArticle($articleId);
+    $this->session->set('delete_article', 'Article supprimé');
+    header('Location: ../public/index.php');
+  }
 }
