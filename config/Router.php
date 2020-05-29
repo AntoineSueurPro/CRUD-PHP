@@ -51,6 +51,9 @@ class Router {
           elseif($route === 'login') {
             $this->frontController->login($this->request->getPost());
           }
+          elseif($route === 'logout') {
+            $this->backController->logout();
+          }
           else {
             $this->errorController->errorNotFound();
           }
