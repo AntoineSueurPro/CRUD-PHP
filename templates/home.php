@@ -10,6 +10,7 @@
 <?= $this->session->show('delete_comment'); ?>
 <?= $this->session->show('register'); ?>
 <?= $this->session->show('login'); ?>
+<?= $this->session->show('delete_account'); ?>
 <?php
 if ($this->session->get('pseudo')) {
     ?>

@@ -53,8 +53,7 @@ class BackController extends Controller {
   }
 
   public function logout() {
-    $this->session->stop();
-    header('Location: ../public/index.php');
+    $this->logoutOrDelete('logout');
   }
 
   public function profile() {
@@ -69,5 +68,24 @@ class BackController extends Controller {
       header('Location: ../public/index.php?route=profile');
     }
     return $this->view->render('update_password');
+  }
+
+  public function deleteAccount() {
+    $this->userDAO->deleteAccount($this->session->get('pseudo'));
+    $this->logoutOrDelete('delete_account');
+  }
+
+  public function logoutOrDelete($param) {
+
+    $this->session->stop();
+    session_start();
+
+    if($param === 'logout') {
+      $this->session->set($param, "A bientot");
+    }
+    else {
+      $this->session->set($param, 'Compte supprimé');
+    }
+    header('Location: ../public/index.php');
   }
 }
