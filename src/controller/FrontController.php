@@ -59,4 +59,8 @@ class FrontController extends Controller {
     }
     return $this->view->render('register');
   }
+
+  public function login(Parameter $post) {
+    return $this->view->render('login');
+  }
 }
