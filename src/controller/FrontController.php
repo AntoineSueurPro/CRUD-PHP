@@ -61,11 +61,14 @@ class FrontController extends Controller {
   }
 
   public function login(Parameter $post) {
+
     if ($post->get('submit')) {
       $result = $this->userDAO->login($post);
+
       if($result && $result['isPasswordValid']) {
         $this->session->set('login', 'Content de vous revoir');
         $this->session->set('id', $result['result']['id']);
+        $this->session->set('role', $result['result']['name']);
         $this->session->set('pseudo', $post->get('pseudo'));
         header('Location: ../public/index.php');
       }
