@@ -51,4 +51,9 @@ class BackController extends Controller {
     $this->session->set('delete_comment', 'Commentaire supprimé');
     header('Location: ../public/index.php');
   }
+
+  public function logout() {
+    $this->session->stop();
+    header('Location: ../public/index.php');
+  }
 }

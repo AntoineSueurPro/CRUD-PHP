@@ -1,16 +1,28 @@
-<?php $this->title = "Accueil"; ?>
+<?php $this->title = 'Accueil'; ?>
+
 <h1>Mon blog</h1>
 <p>En construction</p>
 <?= $this->session->show('add_article'); ?>
 <?= $this->session->show('edit_article'); ?>
 <?= $this->session->show('delete_article'); ?>
-<?= $this->session->show('delete_comment'); ?>
+<?= $this->session->show('add_comment'); ?>
 <?= $this->session->show('flag_comment'); ?>
+<?= $this->session->show('delete_comment'); ?>
 <?= $this->session->show('register'); ?>
 <?= $this->session->show('login'); ?>
-<a href="../public/index.php?route=register">Inscription</a>
-<a href="../public/index.php?route=login">Connexion</a>
-<a href="../public/index.php?route=addArticle">Nouvel article</a>
+<?php
+if ($this->session->get('pseudo')) {
+    ?>
+    <a href="../public/index.php?route=logout">Déconnexion</a>
+    <a href="../public/index.php?route=addArticle">Nouvel article</a>
+    <?php
+} else {
+    ?>
+    <a href="../public/index.php?route=register">Inscription</a>
+    <a href="../public/index.php?route=login">Connexion</a>
+    <?php
+}
+?>
 <?php
 foreach ($articles as $article)
 {
