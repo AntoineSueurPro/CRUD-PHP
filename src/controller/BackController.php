@@ -88,4 +88,8 @@ class BackController extends Controller {
     }
     header('Location: ../public/index.php');
   }
+
+  public function administration() {
+    return $this->view->render('administration');
+  }
 }
