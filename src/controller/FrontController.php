@@ -52,8 +52,8 @@ class FrontController extends Controller {
 
       if(!$errors) {
         $this->userDAO->register($post);
-        $this->session->set('register', 'Vous êtes inscrit ! <br/>');
-        header('Location:../public/index.php');
+        $this->login($post);
+        $this->session->set('register', 'Inscription réussie');
       }
       return $this->view->render('register', ['post' => $post, 'errors' => $errors]);
     }
@@ -66,7 +66,6 @@ class FrontController extends Controller {
       $result = $this->userDAO->login($post);
 
       if($result && $result['isPasswordValid']) {
-        $this->session->set('login', 'Content de vous revoir');
         $this->session->set('id', $result['result']['id']);
         $this->session->set('role', $result['result']['name']);
         $this->session->set('pseudo', $post->get('pseudo'));
