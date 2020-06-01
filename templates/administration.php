@@ -1,6 +1,7 @@
 <?php $this->title = 'Administration'; ?>
 
 <h1>Mon blog</h1>
+<a href="../public/index.php">Retour à l'accueil</a>
 <p>En construction</p>
 <?= $this->session->show('add_article'); ?>
 <?= $this->session->show('edit_article'); ?>
