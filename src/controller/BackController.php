@@ -29,7 +29,7 @@ class BackController extends Controller {
       if(!$errors) {
         $this->articleDAO->editArticle($post, $articleId,$this->session->get('id'));
         $this->session->set('edit_article', 'Article modifié <br/>');
-        header('Location: ../public/index.php');
+        header('Location: ../public/index.php?route=administration');
       }
       return $this->view->render('edit_article', ['post' => $post, 'errors' => $errors]);
     }
@@ -43,7 +43,7 @@ class BackController extends Controller {
   public function deleteArticle($articleId) {
     $this->articleDAO->deleteArticle($articleId);
     $this->session->set('delete_article', 'Article supprimé');
-    header('Location: ../public/index.php');
+    header('Location: ../public/index.php?route=administration');
   }
 
   public function deleteComment($commentId) {
@@ -91,7 +91,8 @@ class BackController extends Controller {
   }
 
   public function administration() {
-    return $this->view->render('administration');
+    $articles=$this->articleDAO->getArticles();
+    return $this->view->render('administration', ['articles' => $articles]);
   }
 
   public function updateAvatar(Parameter $post) {
