@@ -49,7 +49,7 @@ class BackController extends Controller {
   public function deleteComment($commentId) {
     $this->commentDAO->deleteComment($commentId);
     $this->session->set('delete_comment', 'Commentaire supprimé');
-    header('Location: ../public/index.php');
+    header('Location: ../public/index.php?route=administration');
   }
 
   public function logout() {
@@ -91,8 +91,9 @@ class BackController extends Controller {
   }
 
   public function administration() {
-    $articles=$this->articleDAO->getArticles();
-    return $this->view->render('administration', ['articles' => $articles]);
+    $articles= $this->articleDAO->getArticles();
+    $comments= $this->commentDAO->getFlagComments();
+    return $this->view->render('administration', ['articles' => $articles, 'comments' => $comments]);
   }
 
   public function updateAvatar(Parameter $post) {
@@ -100,5 +101,10 @@ class BackController extends Controller {
       $this->avatarDAO->updateAvatar($post, $this->session->get('pseudo'));
     }
     return $this->view->render("update_avatar");
+  }
+
+  public function unflagComment($commentId) {
+    $this->commentDAO->unflagComment($commentId);
+    header('Location: ../public/index.php?route=administration');
   }
 }

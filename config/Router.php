@@ -69,6 +69,9 @@ class Router {
           elseif ($route === 'updateAvatar') {
             $this->backController->updateAvatar($this->request->getPost());
           }
+          elseif ($route === 'unflagComment') {
+            $this->backController->unflagComment($this->request->getGet()->get('commentId'));
+          }
           else {
             $this->errorController->errorNotFound();
           }
