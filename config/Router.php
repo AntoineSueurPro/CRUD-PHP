@@ -72,6 +72,9 @@ class Router {
           elseif ($route === 'unflagComment') {
             $this->backController->unflagComment($this->request->getGet()->get('commentId'));
           }
+          elseif ($route === "deleteUser") {
+            $this->backController->deleteUser($this->request->getGet()->get('userId'));
+          }
           else {
             $this->errorController->errorNotFound();
           }
