@@ -93,7 +93,8 @@ class BackController extends Controller {
   public function administration() {
     $articles= $this->articleDAO->getArticles();
     $comments= $this->commentDAO->getFlagComments();
-    return $this->view->render('administration', ['articles' => $articles, 'comments' => $comments]);
+    $users = $this->userDAO->getUsers();
+    return $this->view->render('administration', ['articles' => $articles, 'comments' => $comments, 'users' => $users]);
   }
 
   public function updateAvatar(Parameter $post) {

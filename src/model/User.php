@@ -39,4 +39,12 @@ class User {
   public function setCreatedAt($createdAt) {
     $this->createdAt = $createdAt;
   }
+
+  public function getRole() {
+    return $this->role;
+  }
+
+  public function setRole($role) {
+    $this->role = $role;
+  }
 }
