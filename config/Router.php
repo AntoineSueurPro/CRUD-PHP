@@ -66,6 +66,9 @@ class Router {
           elseif($route ==='administration') {
             $this->backController->administration();
           }
+          elseif ($route === 'updateAvatar') {
+            $this->backController->updateAvatar($this->request->getPost());
+          }
           else {
             $this->errorController->errorNotFound();
           }

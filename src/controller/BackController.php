@@ -57,7 +57,8 @@ class BackController extends Controller {
   }
 
   public function profile() {
-    return $this->view->render('profile');
+    $avatar = $this->avatarDAO->getAvatar($this->session->get('pseudo'));
+    return $this->view->render('profile', ['image' => $avatar]);
   }
 
   public function updatePassword(Parameter $post) {
@@ -91,5 +92,12 @@ class BackController extends Controller {
 
   public function administration() {
     return $this->view->render('administration');
+  }
+
+  public function updateAvatar(Parameter $post) {
+      if ($post->get('submit')) {
+      $this->avatarDAO->updateAvatar($post, $this->session->get('pseudo'));
+    }
+    return $this->view->render("update_avatar");
   }
 }

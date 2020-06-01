@@ -3,6 +3,7 @@ namespace projet_4\src\controller;
 
 use projet_4\src\DAO\ArticleDAO;
 use projet_4\src\DAO\CommentDAO;
+use projet_4\src\DAO\AvatarDAO;
 use projet_4\src\DAO\UserDAO;
 use projet_4\src\model\View;
 use projet_4\config\Request;
@@ -13,6 +14,7 @@ abstract class Controller {
   protected $articleDAO;
   protected $commentDAO;
   protected $userDAO;
+  protected $avatarDAO;
   protected $view;
   private $request;
   protected $get;
@@ -25,6 +27,7 @@ abstract class Controller {
     $this->articleDAO = new ArticleDAO();
     $this->commentDAO = new CommentDAO();
     $this->userDAO = new UserDAO();
+    $this->avatarDAO = new AvatarDAO();
     $this->view = new View();
     $this->request = new Request();
     $this->validation = new Validation();

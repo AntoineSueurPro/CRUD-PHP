@@ -1,4 +1,4 @@
-<?php $this->title = 'Modifier mot mot de passe'; ?>
+<?php $this->title = 'Modifier mon mot de passe'; ?>
 <h1>Mon blog</h1>
 <p>En construction</p>
 <div>
