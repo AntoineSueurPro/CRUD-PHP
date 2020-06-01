@@ -11,7 +11,7 @@ class BackController extends Controller {
       $errors = $this->validation->validate($post, 'Article');
 
       if(!$errors) {
-        $this->articleDAO->addArticle($post);
+        $this->articleDAO->addArticle($post, $this->session->get('id'));
         $this->session->set('add_article', 'Nouvel article ajouté <br/>');
         header('Location: ../public/index.php');
       }
