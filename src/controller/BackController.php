@@ -108,4 +108,9 @@ class BackController extends Controller {
     $this->commentDAO->unflagComment($commentId);
     header('Location: ../public/index.php?route=administration');
   }
+
+  public function deleteUser($userId) {
+    $this->userDAO->deleteUser($userId);
+    header('Location: ../public/index.php?route=administration');
+  }
 }
