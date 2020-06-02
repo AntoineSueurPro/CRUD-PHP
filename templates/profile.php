@@ -1,21 +1,29 @@
 <?php $this->title = 'Mon profil'; ?>
-<h1>Mon blog</h1>
-<p>En construction</p>
-<?= $this->session->show('update_password'); ?>
-<?= $this->session->show('update_avatar'); ?>
-<div>
-    <h2><?= $this->session->get('pseudo'); ?></h2>
-    <?php if($this->session->get('role') === 'admin') { ?>
-            <p>Admin</p>
+
+<style type="text/css">
+.avatar-image {
+background-image: url(<?='"data:image/jpeg;base64,'.base64_encode( $image->getBin()).'"'; ?>);
+}
+</style>
+
+<section class="profile flex">
+  <div class="titre-separateur flex">
+    <h1 class"titre-generique flex">Mon blog</h1>
+    <div class="separateur flex"></div>
+  </div>
+  <div class="avatar-image flex"></div>
+  <div class="user-and-role flex">
+    <p class="pseudo-role flex"><?= $this->session->get('pseudo'); ?></p>
+    <p class="pseudo-role flex">Role : <?php if($this->session->get('role') === 'admin') { ?>
+            <span class="red">Admin</span>
     <?php }
           else { ?>
-            <p>User<p>
-        <?php  } ?>
-    <a href="../public/index.php?route=updatePassword">Modifier son mot de passe</a><br>
-    <?= '<img src="data:image/jpeg;base64,'.base64_encode( $image->getBin()).'"/>'; ?>
-    <a href="../public/index.php?route=updateAvatar">Modifier mon avatar</a>
-    <a href="../public/index.php?route=deleteAccount">Supprimer mon compte</a>
-    <a href="../public/index.php?route=updateAvatar">Supprimer mon compte</a>
-</div>
-<br>
-<a href="../public/index.php">Retour à l'accueil</a>
+            <span class="pseudo-role flex">User</span>
+        <?php  } ?></p>
+  </div>
+  <div class="profile-button flex">
+  <a href="../public/index.php?route=updatePassword"><div class="button_orange flex">Modifier mon mot de passe<br></div></a>
+  <a href="../public/index.php?route=updateAvatar"><div class="button_orange flex">Modifier mon avatar<br></div></a>
+  <a href="../public/index.php?route=deleteAccount"><div class="button_orange flex">Supprimer mon compte</div></a>
+  </div>
+</section>

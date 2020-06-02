@@ -4,16 +4,6 @@
     <h1 class"titre-generique flex">Mon blog</h1>
     <div class="separateur flex"></div>
   </div>
-
-  <?= $this->session->show('add_article'); ?>
-  <?= $this->session->show('edit_article'); ?>
-  <?= $this->session->show('delete_article'); ?>
-  <?= $this->session->show('add_comment'); ?>
-  <?= $this->session->show('flag_comment'); ?>
-  <?= $this->session->show('delete_comment'); ?>
-  <?= $this->session->show('register'); ?>
-  <?= $this->session->show('login'); ?>
-  <?= $this->session->show('delete_account'); ?>
 <div class="test flex">
   <?php
   foreach ($articles as $article) { ?>
