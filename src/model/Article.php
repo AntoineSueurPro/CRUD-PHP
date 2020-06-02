@@ -10,6 +10,7 @@ class Article
     private $content;
     private $author;
     private $createdAt;
+    private $image;
 
     public function getId()
     {
@@ -59,5 +60,13 @@ class Article
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+    }
+
+    public function setImage($image) {
+      $this->image = $image;
+    }
+
+    public function getImage() {
+      return $this->image;
     }
 }

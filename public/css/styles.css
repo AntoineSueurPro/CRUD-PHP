@@ -102,8 +102,11 @@ body, html {
 .test {
   /*border: 1px solid red;*/
   flex-direction: column;
+}
 
-
+.date-author {
+  font-size: 15px;
+  font-weight: normal;
 }
 
 .article-content {

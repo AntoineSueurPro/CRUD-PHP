@@ -15,12 +15,13 @@ class ArticleDAO extends DAO {
     $article->setContent($row['content']);
     $article->setAuthor($row['pseudo']);
     $article->setCreatedAt($row['createdAt']);
+    $article->setImage($row['image']);
     return $article;
   }
 
   public function getArticles() {
 
-    $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id ORDER BY article.id DESC';
+    $sql = 'SELECT article.id, article.title, article.content, article.image, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id ORDER BY article.id DESC';
     $result = $this->createQuery($sql);
     $articles = [];
 
@@ -34,7 +35,7 @@ class ArticleDAO extends DAO {
 
   public function getArticle($articleId) {
 
-    $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id WHERE article.id = ?';
+    $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt, article.image FROM article INNER JOIN user ON article.user_id = user.id WHERE article.id = ?';
     $result = $this->createQuery($sql, [$articleId]);
     $article = $result->fetch();
     $result->closeCursor();
@@ -43,8 +44,8 @@ class ArticleDAO extends DAO {
 
   public function addArticle(Parameter $post, $userId) {
 
-    $sql = 'INSERT INTO article(title, content, createdAt, user_id) VALUES (?, ?, NOW(), ?)';
-    $this->createQuery($sql,[$post->get('title'), $post->get('content'), $userId]);
+    $sql = 'INSERT INTO article(title, content, createdAt, user_id, image) VALUES (?, ?, NOW(), ?, ?)';
+    $this->createQuery($sql,[$post->get('title'), $post->get('content'), $userId, file_get_contents($_FILES["image"]["tmp_name"])]);
   }
 
   public function editArticle(Parameter $post, $articleId, $userId) {
