@@ -1,7 +1,7 @@
 <div class ="menu-logo-text-container">
   <div class = "logo-texte-container">
-    <div class = "logo"><img class="logo-image" src="../public/img/logo.jpg" alt="Logo site"/></div>
-    <div class = textTitle>BeCreative</div>
+    <div class = "logo"><a class="no-link" href="../public/index.php"><img class="logo-image" src="../public/img/logo.jpg" alt="Logo site"/></div>
+    <div class = textTitle>BeCreative</div></a>
     <div class ="orange-dot"><i class="fas fa-circle"></i></div>
   </div>
   <nav class = menu>

@@ -3,7 +3,7 @@
 <p>En construction</p>
 <div>
     <h2><?= htmlspecialchars($article->getTitle());?></h2>
-    <p><?= htmlspecialchars($article->getContent());?></p>
+    <p><?= $article->getContent() ?></p>
     <p><?= htmlspecialchars($article->getAuthor());?></p>
     <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
 </div>
@@ -22,7 +22,7 @@
     {
         ?>
         <h4><?= htmlspecialchars($comment->getPseudo());?></h4>
-        <p><?= htmlspecialchars($comment->getContent());?></p>
+        <p><?= $comment->getContent() ?></p>
         <p>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
         <p><a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a></p>
         <?php

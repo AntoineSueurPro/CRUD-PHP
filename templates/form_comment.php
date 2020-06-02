@@ -8,7 +8,7 @@ $submit = $route === 'addComment' ? 'Ajouter' : 'Mettre à jour';
     <input type="text" id="pseudo" name="pseudo" value="<?= isset($post) ? htmlspecialchars($post->get('pseudo')): ''; ?>"><br>
     <?= isset($errors['pseudo']) ? $errors['pseudo'] : ''; ?>
     <label for="content">Message</label><br>
-    <textarea id="content" name="content"><?= isset($post) ? htmlspecialchars($post->get('content')): ''; ?></textarea><br>
+    <textarea id="content-form-comment" name="content"><?= isset($post) ? htmlspecialchars($post->get('content')): ''; ?></textarea><br>
     <?= isset($errors['content']) ? $errors['content'] : ''; ?>
     <input type="submit" value="<?= $submit; ?>" id="submit" name="submit">
 </form>
