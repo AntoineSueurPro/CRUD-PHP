@@ -21,11 +21,7 @@ class CommentValidation extends Validation {
 
   private function checkField($name, $value) {
 
-    if($name=== 'pseudo') {
-      $error = $this->checkPseudo($name, $value);
-      $this->addError($name, $error);
-    }
-    elseif($name === 'content') {
+    if($name === 'content') {
       $error = $this->checkContent($name, $value);
       $this->addError($name, $error);
     }
@@ -35,21 +31,6 @@ class CommentValidation extends Validation {
 
     if($error) {
       $this->errors += [$name => $error];
-    }
-  }
-
-  private function checkPseudo($name, $value) {
-
-    if($this->constraint->notBlank($name, $value)) {
-      return $this->constraint->notBlank('pseudo', $value);
-    }
-
-    if ($this->constraint->minLength($name, $value, 2)) {
-      return $this->constraint->minLenght('pseudo', $value, 2);
-    }
-
-    if ($this->constraint->maxLength($name, $value, 20)) {
-      return $this->constraint->maxLength('pseudo', $value, 20);
     }
   }
 
