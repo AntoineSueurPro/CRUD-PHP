@@ -12,12 +12,16 @@ class UserDAO extends DAO {
     $user->setPseudo($row['pseudo']);
     $user->setCreatedAt($row['createdAt']);
     $user->setRole($row['name']);
+    $user->setAvatar($row['avatar']);
     return $user;
   }
 
   public function register(Parameter $post) {
-    $sql = 'INSERT INTO user (pseudo, password, createdAt, role_id) VALUES (?, ?, NOW(), ?)';
-    $this->createQuery($sql, [$post->get('pseudo'), password_hash($post->get('password'), PASSWORD_BCRYPT), 2]);
+    $sql = 'INSERT INTO user (pseudo, password, createdAt, role_id, avatar) VALUES (?, ?, NOW(), ?, ?)';
+    if(empty($_FILES["image"])) {
+      $_FILES["image"] = 1;
+    }
+    $this->createQuery($sql, [$post->get('pseudo'), password_hash($post->get('password'), PASSWORD_BCRYPT), 2, file_get_contents($_FILES["image"]["tmp_name"])]);
   }
 
   public function checkUser(Parameter $post) {
@@ -48,7 +52,7 @@ class UserDAO extends DAO {
   }
 
   public function getUsers() {
-    $sql = 'SELECT user.id, user.pseudo, user.createdAt, role.name FROM user INNER JOIN role ON user.role_id = role.id ORDER BY user.id DESC';
+    $sql = 'SELECT user.id, user.pseudo, user.createdAt, role.name, user.avatar FROM user INNER JOIN role ON user.role_id = role.id ORDER BY user.id DESC';
     $result = $this->createQuery($sql);
     $users = [];
 
@@ -63,5 +67,18 @@ class UserDAO extends DAO {
   public function deleteUser($userId) {
     $sql = 'DELETE FROM user WHERE id = ?';
     $this->createQuery($sql,[$userId]);
+  }
+
+  public function updateAvatar(Parameter $post, $pseudo) {
+    $sql = 'UPDATE user SET avatar = ? WHERE pseudo = ?';
+    $this->createQuery($sql,[file_get_contents($_FILES["image"]["tmp_name"]), $pseudo]);
+  }
+
+  public function getProfile($pseudo) {
+    $sql = 'SELECT user.id, user.createdAt, role.name, user.avatar, user.pseudo FROM user INNER JOIN role ON user.role_id = role.id WHERE pseudo = ?';
+    $result = $this->createQuery($sql, [$pseudo]);
+    $profil = $result->fetch();
+    $result->closeCursor();
+    return $this->buildObject($profil);
   }
 }

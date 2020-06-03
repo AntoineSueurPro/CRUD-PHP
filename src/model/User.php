@@ -7,6 +7,7 @@ class User {
   private $pseudo;
   private $password;
   private $createdAt;
+  private $avatar;
 
   public function getId() {
     return $this->id;
@@ -46,5 +47,13 @@ class User {
 
   public function setRole($role) {
     $this->role = $role;
+  }
+
+  public function getAvatar() {
+    return $this->avatar;
+  }
+
+  public function setAvatar($avatar) {
+    $this->avatar = $avatar;
   }
 }
