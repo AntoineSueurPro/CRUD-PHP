@@ -73,8 +73,8 @@ class BackController extends Controller {
   public function profile() {
 
     if($this->checkLoggedIn()) {
-      $avatar = $this->avatarDAO->getAvatar($this->session->get('pseudo'));
-      return $this->view->render('profile', ['image' => $avatar]);
+      $profile = $this->userDAO->getProfile($this->session->get('pseudo'));
+      return $this->view->render('profile', ['profile' => $profile]);
     }
   }
 
@@ -102,7 +102,6 @@ class BackController extends Controller {
   public function logoutOrDelete($param) {
 
     $this->session->stop();
-    session_start();
 
     if($param === 'logout') {
       $this->session->set($param, "A bientot");
@@ -126,7 +125,8 @@ class BackController extends Controller {
 
   public function updateAvatar(Parameter $post) {
       if ($post->get('submit')) {
-      $this->avatarDAO->updateAvatar($post, $this->session->get('pseudo'));
+      $this->userDAO->updateAvatar($post, $this->session->get('pseudo'));
+      header('Location: ../public/index.php?route=profile');
     }
     return $this->view->render("update_avatar");
   }
