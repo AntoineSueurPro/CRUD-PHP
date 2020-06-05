@@ -118,7 +118,7 @@ label {
 .article-content {
   font-size: 20px;
   margin-bottom: 70px;
-  m
+  font-style: normal;
 }
 
 .title-date{
@@ -308,3 +308,19 @@ margin: auto;
   font-weight: bold;
   margin-bottom: 10px;
 }
+
+.no-comment {
+  text-align: center;
+}
+
+.light {
+  font-size: 22px;
+  font-weight: lighter;
+}
+
+.paginate {
+  text-align: center;
+}
+ .paginate-button {
+   color: #EE5A24;
+ }
