@@ -1,10 +1,9 @@
 <?php $this->title = 'Mon profil'; ?>
-
-<style type="text/css">
-.avatar-image {
-background-image: url(<?='"data:image/jpeg;base64,'.base64_encode( $image->getBin()).'"'; ?>);
-}
-</style>
+  <style type="text/css">
+  .avatar-image {
+  background-image: url(<?='"data:image/jpeg;base64,'.base64_encode( $profile->getAvatar()).'"'; ?>);
+  }
+  </style>
 
 <section class="profile flex">
   <div class="titre-separateur flex">

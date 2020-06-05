@@ -1,43 +1,57 @@
 <?php $this->title = "Article"; ?>
-<h1>Mon blog</h1>
-<p>En construction</p>
-<div>
-    <h2><?= htmlspecialchars($article->getTitle());?></h2>
-    <p><?= $article->getContent() ?></p>
-    <p><?= htmlspecialchars($article->getAuthor());?></p>
-    <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
-</div>
-<br>
-<div class="actions">
-    <a href="../public/index.php?route=editArticle&articleId=<?= $article->getId(); ?>">Modifier</a>
-    <a href="../public/index.php?route=deleteArticle&articleId=<?= $article->getId(); ?>">Supprimer</a>
-</div>
-<a href="../public/index.php">Retour à l'accueil</a>
-<div id="comments" class="text-left" style="margin-left: 50px">
-  <h3>Ajouter un commentaire</h3>
-  <?php include('form_comment.php'); ?>
-    <h3>Commentaires</h3>
-    <?php
-    foreach ($comments as $comment)
-    {
-        ?>
-        <h4><?= htmlspecialchars($comment->getPseudo());?></h4>
-        <p><?= $comment->getContent() ?></p>
-        <p>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
-        <p><a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a></p>
-        <?php
-        if($comment->isFlag()) {
-          ?>
-          <p>Ce commentaire est déjà signalé</p>
-          <?php
-        }
-        else {
-          ?>
-          <p><a href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
-          <?php
-        }
-        ?>
-        <?php
-    }
-    ?>
-</div>
+<section class="article-comment flex">
+  <div class="titre-separateur flex">
+    <h1 class"titre-generique flex">Mon blog</h1>
+    <div class="separateur flex"></div>
+  </div>
+<div class="test flex">
+  <div class="article-container flex">
+    <div class="title-date flex">
+      <div class="article-title flex"><h2><a class="link-title" href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a>
+        <span class= "date-author">- Le <?= htmlspecialchars($article->getCreatedAt()); ?> </span></h2></div>
+    </div>
+    <div><?= '<img class="img" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>
+    <div class="article-content flex">
+      <p><?= $article->getContent() ?></p>
+      <p>Par <?= $article->getAuthor();?></p>
+    </div>
+  </div>
+        <div class="titre-separateur flex">
+          <h1 class"titre-generique flex">Commentaires</h1>
+          <div class="separateur flex"></div>
+        </div>
+        <div class="comment-full-container">
+        <?php foreach ($comments as $comment) { ?>
+          <div class="comment-container flex">
+            <p><span class="pseudo" ><?= htmlspecialchars($comment->getPseudo());?></span><span class="date-comment"> - Posté le <?= htmlspecialchars($comment->getCreatedAt());?></span></p>
+            <div class="comment-content flex">
+              <div class="content-comment flex"><p><?= $comment->getContent() ?></p></div>
+              <?php
+              if($comment->isFlag()) {
+                ?>
+                <p class="red">Commentaire signalé</p>
+                <?php
+              }
+              else {
+                ?>
+                <p><a class="read" href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
+                <?php
+              }
+              ?>
+            </div>
+          </div>
+              <?php
+            }
+            ?>
+    <div class="post-comment flex">
+        <div class="titre-separateur-2 flex">
+          <h1>Publier un commentaire</h1>
+          <div class="separateur flex"></div>
+        </div>
+    </div>
+    <div class="comment-form flex">
+      <?php include('form_comment.php'); ?>
+    </div>
+   </div>
+  </div>
+</section>

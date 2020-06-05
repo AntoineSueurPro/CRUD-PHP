@@ -8,7 +8,9 @@
     <script>
     tinymce.init({
       selector: '#content-form-comment',
-      menubar: false
+      menubar: false ,
+      toolbar: 'bold italic | align' ,
+      resize: false ,
     });
 
     tinymce.init({
