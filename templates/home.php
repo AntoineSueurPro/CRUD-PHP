@@ -4,7 +4,7 @@ foreach ($articles as $article) {
   array_push($tab, $article);
 }
 $nb_articles = count(($articles));
-$nb_article_pages = 10;
+$nb_article_pages = 3;
 $nb_pages = ceil($nb_articles/$nb_article_pages);
 @$page = $_GET["page"];
 if(empty($page)) {
@@ -36,7 +36,7 @@ if($fin > count(($tab))) {
     <?php } ?>
     <div class="paginate">
     <?php for ($i=1; $i <= $nb_pages; $i++) { ?>
-      <a class="paginate-button" href='?page=<?= $i?>'><?= $i ?></a>
+      <a class="paginate-button" href='?page=<?= $i?>'><?= $i ?></a> - 
   <?php  } ?>
   </div>
 </div>

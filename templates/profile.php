@@ -23,6 +23,6 @@
   <div class="profile-button flex">
   <a href="../public/index.php?route=updatePassword"><div class="button_orange flex">Modifier mon mot de passe<br></div></a>
   <a href="../public/index.php?route=updateAvatar"><div class="button_orange flex">Modifier mon avatar<br></div></a>
-  <a href="../public/index.php?route=deleteAccount"><div class="button_orange flex">Supprimer mon compte</div></a>
-  </div>
+  <a href="../public/index.php?route=deleteAccount"><div class="button_orange flex">Supprimer mon compte</div></a><br>
+  <a href="../public/index.php">Retour à l'accueil</a>
 </section>

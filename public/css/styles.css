@@ -18,6 +18,10 @@ label {
   font-size: 20px;
 }
 
+h1 {
+  margin-block-end: 0.1em;
+}
+
 /* HEADER*/
 
 .menu-logo-text-container {
@@ -207,7 +211,9 @@ margin: auto;
 
 .form-container {
   margin-top: 115px;
-  border: 1px solid red;
+  margin: auto;
+  width: 15%;
+  text-align: center;
 }
 
 .cool-input, #password{
@@ -235,20 +241,21 @@ margin: auto;
   border: 1px solid white;
 }
 
-/* SECTION ARTICLE */
+/* SECTION SINGLE */
 
 .comment-full-container {
-  width: 42%;
-  margin: auto;
+  width: 100%;
 }
 
 .comment-container {
-  margin-bottom: 20px;
+width: 42%;
+margin: auto;
 }
 
 .message {
   text-align: center;
   font-weight: bold;
+  margin: auto;
 }
 
 
@@ -258,11 +265,11 @@ margin: auto;
   text-align: center;
 }
 .comment-form {
-  width: 100%;
+  width: 42%;
   text-align: center;
+  margin: auto;
 }
 .comment-button {
-
     background-color: #EE5A24;
     border: none;
     outline: none;
@@ -282,8 +289,6 @@ margin: auto;
   font-size: 13px;
   font-weight: lighter;
 }
-
-/* FORM LOGIN & REGISTER*/
 
 /* FORM LOGIN & REGISTER*/
 
@@ -323,4 +328,14 @@ margin: auto;
 }
  .paginate-button {
    color: #EE5A24;
+ }
+
+ .separateur {
+   margin: auto;
+   width: 3%;
+   border: 2px solid #EE5A24;
+ }
+
+ .post-comment {
+   width: 100%;
  }
