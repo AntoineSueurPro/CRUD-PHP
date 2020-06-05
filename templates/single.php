@@ -1,4 +1,5 @@
-<?php $this->title = "Article"; ?>
+<?php $this->title = "Article";
+$nb = count(($comments))?>
 <section class="article-comment flex">
   <div class="titre-separateur flex">
     <h1 class"titre-generique flex">Mon blog</h1>
@@ -13,14 +14,17 @@
     <div><?= '<img class="img" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>
     <div class="article-content flex">
       <p><?= $article->getContent() ?></p>
-      <p>Par <?= $article->getAuthor();?></p>
+      <p><?= $article->getAuthor();?></p>
     </div>
   </div>
         <div class="titre-separateur flex">
-          <h1 class"titre-generique flex">Commentaires</h1>
+          <h1 class"titre-generique flex">Commentaires <span class="light">(<?= $nb ?>)</span></h1>
           <div class="separateur flex"></div>
         </div>
         <div class="comment-full-container">
+          <?php if(count(($comments)) === 0) { ?>
+          <div class="no-comment flex"><p>Il n'y a aucun commentaire. Soyez le premier à commenter !</p></div>
+        <?php } else { ?>
         <?php foreach ($comments as $comment) { ?>
           <div class="comment-container flex">
             <p><span class="pseudo" ><?= htmlspecialchars($comment->getPseudo());?></span><span class="date-comment"> - Posté le <?= htmlspecialchars($comment->getCreatedAt());?></span></p>
@@ -42,6 +46,7 @@
           </div>
               <?php
             }
+          }
             ?>
     <div class="post-comment flex">
         <div class="titre-separateur-2 flex">
