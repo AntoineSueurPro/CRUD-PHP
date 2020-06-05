@@ -36,7 +36,7 @@ if($fin > count(($tab))) {
     <?php } ?>
     <div class="paginate">
     <?php for ($i=1; $i <= $nb_pages; $i++) { ?>
-      <a href='?page=$i'><?= $i ?></a>
+      <a class="paginate-button" href='?page=<?= $i?>'><?= $i ?></a>
   <?php  } ?>
   </div>
 </div>
