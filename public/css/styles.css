@@ -18,7 +18,7 @@ label {
   font-size: 20px;
 }
 
-h1 {
+h1, h2 {
   margin-block-end: 0.1em;
 }
 
@@ -338,4 +338,38 @@ margin: auto;
 
  .post-comment {
    width: 100%;
+ }
+
+ td {
+   border: 1px solid black;
+   padding: 10px;
+ }
+
+ .admin-container {
+   text-align: center;
+ }
+
+ .admin-container a {
+   color: #EE5A24;
+ }
+
+ .table-admin {
+   border: 1px solid red;
+   margin: auto;
+   border-collapse: collapse;
+   width: 60%;
+ }
+
+ .table-content {
+   font-weight: lighter;
+ }
+
+ .edit-article {
+   width: 70%;
+   margin: auto;
+   text-align: center;
+ }
+
+ .input {
+   width: 40%;
  }
