@@ -1,7 +1,8 @@
 <?php $this->title = "Nouvel article"; ?>
-<h1>Mon blog</h1>
-<p>En construction</p>
+<div class="titre-separateur flex">
+  <h1 class"titre-generique flex">Edition d'article</h1>
+  <div class="separateur flex"></div>
+</div>
 <div>
     <?php include('form_article.php'); ?>
-    <a href="../public/index.php">Retour à l'accueil</a>
 </div>

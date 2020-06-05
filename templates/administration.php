@@ -1,18 +1,16 @@
 <?php $this->title = 'Administration'; ?>
-
-<h1>Mon blog</h1>
-<a href="../public/index.php">Retour à l'accueil</a>
-<p>En construction</p>
-<?= $this->session->show('add_article'); ?>
-<?= $this->session->show('edit_article'); ?>
-<?= $this->session->show('delete_article'); ?>
-<?= $this->session->show('unflag_comment'); ?>
-<?= $this->session->show('delete_comment'); ?>
-<h2>Articles</h2>
-<a href="../public/index.php?route=addArticle">Nouvel article</a>
-<table>
+<section class="admin-container">
+<div class="titre-separateur flex">
+  <h1 class"titre-generique flex">Administration</h1>
+  <div class="separateur flex"></div>
+</div>
+<div class="titre-separateur flex">
+  <h2 class"titre-generique flex">Article</h2>
+  <div class="separateur flex"></div><br>
+  <a href="../public/index.php?route=addArticle">Nouvel article</a>
+</div>
+<table class="table-admin">
     <tr>
-        <td>Id</td>
         <td>Titre</td>
         <td>Contenu</td>
         <td>Auteur</td>
@@ -24,9 +22,8 @@
     {
         ?>
         <tr>
-            <td><?= htmlspecialchars($article->getId());?></td>
             <td><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a></td>
-            <td><?= substr($article->getContent(), 0, 150);?></td>
+            <td class="table-content"><?= substr($article->getContent(), 0, 300);?></td>
             <td><?= htmlspecialchars($article->getAuthor());?></td>
             <td>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></td>
             <td>
@@ -39,8 +36,11 @@
     ?>
 </table>
 
-<h2>Commentaires signalés</h2>
-<table>
+<div class="titre-separateur flex">
+  <h2 class"titre-generique flex">Commentaires signalés</h2>
+  <div class="separateur flex"></div>
+</div>
+<table class="table-admin">
     <tr>
         <td>Id</td>
         <td>Pseudo</td>
@@ -67,8 +67,11 @@
     ?>
 </table>
 
-<h2>Utilisateurs</h2>
-<table>
+<div class="titre-separateur flex">
+  <h2 class"titre-generique flex">Utilisateurs</h2>
+  <div class="separateur flex"></div>
+</div>
+<table class="table-admin">
     <tr>
         <td>Id</td>
         <td>Pseudo</td>
@@ -103,3 +106,4 @@
     }
     ?>
 </table>
+</section>
