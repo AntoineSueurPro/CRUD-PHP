@@ -107,6 +107,10 @@ h1, h2 {
   font-size: 2em;
 }
 
+.footer-icon a {
+  color: black;
+}
+
 /*SECTION HOME*/
 
 .test {

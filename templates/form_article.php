@@ -5,7 +5,7 @@ $submit = $route === 'addArticle' ? 'Envoyer' : 'Mettre à jour';
 <section class="edit-article">
 <form method="post" action="../public/index.php?route=<?= $route; ?>" enctype = "multipart/form-data">
     <label for="title">Titre</label><br><br>
-    <textarea class="input flex" type="text" id="title" name="title" value="<?= isset($post) ? htmlspecialchars($post->get('title')): ''; ?>"></textarea><br>
+    <input class="input flex" type="text" id="title" name="title" value="<?= isset($post) ? htmlspecialchars($post->get('title')): ''; ?>"></textarea><br>
     <?= isset($errors['title']) ? $errors['title'] : ''; ?><br>
     <label for="image">Choisir une image : </label>
     <input type="file" name="image"><br><br>

@@ -49,13 +49,26 @@ class ArticleDAO extends DAO {
   }
 
   public function editArticle(Parameter $post, $articleId, $userId) {
-    $sql = 'UPDATE article SET title=:title, content=:content, user_id=:user_id WHERE id=:articleId';
+    if(empty(file_get_contents($_FILES["image"]["tmp_name"]))){
+
+      $sql = 'UPDATE article SET title=:title, content=:content, user_id=:user_id WHERE id=:articleId';
+      $this->createQuery($sql, [
+        'title' => $post->get('title'),
+        'content' => $post->get('content'),
+        'user_id' => $userId,
+        'articleId' => $articleId
+      ]);
+    }
+    else {
+    $sql = 'UPDATE article SET title=:title, content=:content, user_id=:user_id, image=:image WHERE id=:articleId';
     $this->createQuery($sql, [
       'title' => $post->get('title'),
       'content' => $post->get('content'),
+      'image' => file_get_contents($_FILES["image"]["tmp_name"]),
       'user_id' => $userId,
       'articleId' => $articleId
     ]);
+  }
   }
 
   public function deleteArticle($articleId) {
