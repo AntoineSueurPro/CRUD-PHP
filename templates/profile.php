@@ -17,7 +17,7 @@
 
 <section class="profile flex">
   <div class="titre-separateur flex">
-    <h1 class"titre-generique flex">Mon blog</h1>
+    <h1 class="titre-generique">Mon blog</h1>
     <div class="separateur flex"></div>
   </div>
   <div class="avatar-image flex"></div>

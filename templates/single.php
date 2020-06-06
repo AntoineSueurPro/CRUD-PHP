@@ -2,7 +2,7 @@
 $nb = count(($comments))?>
 <section class="article-comment flex">
   <div class="titre-separateur flex">
-    <h1 class"titre-generique flex">Mon blog</h1>
+    <h1 class="titre-generique">Mon blog</h1>
     <div class="separateur flex"></div>
   </div>
 <div class="test flex">
@@ -13,18 +13,18 @@ $nb = count(($comments))?>
     </div>
     <?php  $image = $article->getImage();
       if($image === '') { ?>
-        <div><img class="img" src ="../public/img/test.jpg"/></div>
+        <div><img class="img" alt="image de présentation" src ="../public/img/test.jpg"/></div>
     <?php  }
       else { ?>
-        <div><?= '<img class="img" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>
+        <div><?= '<img class="img" alt="image de présentation" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>
     <?php  } ?>
     <div class="article-content flex">
-      <p><?= $article->getContent() ?></p>
+      <?= $article->getContent() ?>
       <p><?= $article->getAuthor();?></p>
     </div>
   </div>
         <div class="titre-separateur flex">
-          <h1 class"titre-generique flex">Commentaires <span class="light">(<?= $nb ?>)</span></h1>
+          <h1 class="titre-generique">Commentaires <span class="light">(<?= $nb ?>)</span></h1>
           <div class="separateur flex"></div>
         </div>
         <div class="comment-full-container">
@@ -35,7 +35,7 @@ $nb = count(($comments))?>
           <div class="comment-container flex">
             <p><span class="pseudo" ><?= htmlspecialchars($comment->getPseudo());?></span><span class="date-comment"> - Posté le <?= htmlspecialchars($comment->getCreatedAt());?></span></p>
             <div class="comment-content flex">
-              <div class="content-comment flex"><p><?= $comment->getContent() ?></p></div>
+              <div class="content-comment flex"><?= $comment->getContent() ?></div>
               <?php
               if($comment->isFlag()) {
                 ?>

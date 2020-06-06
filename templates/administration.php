@@ -1,11 +1,11 @@
 <?php $this->title = 'Administration'; ?>
 <section class="admin-container">
 <div class="titre-separateur flex">
-  <h1 class"titre-generique flex">Administration</h1>
+  <h1 class="titre-generique">Administration</h1>
   <div class="separateur flex"></div>
 </div>
 <div class="titre-separateur flex">
-  <h2 class"titre-generique flex">Article</h2>
+  <h2 class="titre-generique">Article</h2>
   <div class="separateur flex"></div><br>
   <a href="../public/index.php?route=addArticle">Nouvel article</a>
 </div>
@@ -37,7 +37,7 @@
 </table>
 
 <div class="titre-separateur flex">
-  <h2 class"titre-generique flex">Commentaires signalés</h2>
+  <h2 class="titre-generique">Commentaires signalés</h2>
   <div class="separateur flex"></div>
 </div>
 <table class="table-admin">
@@ -68,7 +68,7 @@
 </table>
 
 <div class="titre-separateur flex">
-  <h2 class"titre-generique flex">Utilisateurs</h2>
+  <h2 class="titre-generique">Utilisateurs</h2>
   <div class="separateur flex"></div>
 </div>
 <table class="table-admin">

@@ -18,7 +18,7 @@ if($fin > count(($tab))) {
 }?>
 <section class="home flex">
   <div class="titre-separateur flex">
-    <h1 class"titre-generique flex">Mon blog</h1>
+    <h1 class="titre-generique flex">Mon blog</h1>
     <div class="separateur flex"></div>
   </div>
 <div class="test flex">
@@ -32,10 +32,10 @@ if($fin > count(($tab))) {
         </div>
       <?php  $image = $article->getImage();
         if($image === '') { ?>
-          <div><img class="img" src ="../public/img/test.jpg"/></div>
+          <div><img class="img" alt="image de présentation" src ="../public/img/test.jpg"/></div>
       <?php  }
         else { ?>
-          <div><?= '<img class="img" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>
+          <div><?= '<img class="img" alt="image de présentation" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>
       <?php  } ?>
         <div class="article-content flex"><?=substr($article->getContent(), 0, 550);?>... <a class="read" href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>">Lire l'article</a></p></div>
       </div>

@@ -1,6 +1,6 @@
 <?php $this->title = "Modifier l'article"; ?>
 <div class="titre-separateur flex">
-  <h1 class"titre-generique flex">Modifier l'article</h1>
+  <h1 class="titre-generique">Modifier l'article</h1>
   <div class="separateur flex"></div>
 </div>
 <div>

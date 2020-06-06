@@ -1,7 +1,7 @@
 <?php $this->title = "Inscription"; ?>
 <div class="general-container">
 <div class="titre-separateur flex">
-  <h1 class"titre-generique flex">Inscription</h1>
+  <h1 class="titre-generique">Inscription</h1>
   <div class="separateur flex"></div>
 </div>
 <div class="log-form">

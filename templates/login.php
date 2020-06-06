@@ -1,7 +1,7 @@
 <?php $this->title = "Connexion"; ?>
 <div class="general-container">
 <div class="titre-separateur flex">
-  <h1 class"titre-generique flex">Connexion</h1>
+  <h1 class="titre-generique">Connexion</h1>
   <div class="separateur flex"></div>
 </div>
 <?= $this->session->show('error_login'); ?>
