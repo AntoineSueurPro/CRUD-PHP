@@ -11,7 +11,13 @@ $nb = count(($comments))?>
       <div class="article-title flex"><h2><a class="link-title" href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a>
         <span class= "date-author">- Le <?= htmlspecialchars($article->getCreatedAt()); ?> </span></h2></div>
     </div>
-    <div><?= '<img class="img" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>
+    <?php  $image = $article->getImage();
+      if($image === '') { ?>
+        <div><img class="img" src ="../public/img/test.jpg"/></div>
+    <?php  }
+      else { ?>
+        <div><?= '<img class="img" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>
+    <?php  } ?>
     <div class="article-content flex">
       <p><?= $article->getContent() ?></p>
       <p><?= $article->getAuthor();?></p>

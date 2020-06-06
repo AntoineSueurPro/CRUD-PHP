@@ -30,13 +30,19 @@ if($fin > count(($tab))) {
           <div class="article-title flex"><h2><a class="link-title" href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a>
             <span class= "date-author">- Le <?= htmlspecialchars($article->getCreatedAt()); ?>  -  par <?= htmlspecialchars($article->getAuthor());?></span></h2></div>
         </div>
-        <div><?= '<img class="img" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>
+      <?php  $image = $article->getImage();
+        if($image === '') { ?>
+          <div><img class="img" src ="../public/img/test.jpg"/></div>
+      <?php  }
+        else { ?>
+          <div><?= '<img class="img" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>
+      <?php  } ?>
         <div class="article-content flex"><?=substr($article->getContent(), 0, 550);?>... <a class="read" href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>">Lire l'article</a></p></div>
       </div>
     <?php } ?>
     <div class="paginate">
     <?php for ($i=1; $i <= $nb_pages; $i++) { ?>
-      <a class="paginate-button" href='?page=<?= $i?>'><?= $i ?></a> - 
+      <a class="paginate-button" href='?page=<?= $i?>'><?= $i ?></a> -
   <?php  } ?>
   </div>
 </div>

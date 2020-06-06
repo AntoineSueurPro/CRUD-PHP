@@ -1,9 +1,19 @@
 <?php $this->title = 'Mon profil'; ?>
-  <style type="text/css">
-  .avatar-image {
-  background-image: url(<?='"data:image/jpeg;base64,'.base64_encode( $profile->getAvatar()).'"'; ?>);
-  }
-  </style>
+  <?php  $avatar = $profile->getAvatar();
+    if($avatar === '') { ?>
+      <style type="text/css">
+      .avatar-image {
+      background-image: url('../public/img/test.jpg');
+      }
+      </style>
+  <?php  }
+    else { ?>
+      <style type="text/css">
+      .avatar-image {
+      background-image: url(<?='"data:image/jpeg;base64,'.base64_encode( $profile->getAvatar()).'"'; ?>);
+      }
+      </style>
+  <?php  } ?>
 
 <section class="profile flex">
   <div class="titre-separateur flex">
