@@ -341,8 +341,16 @@ margin: auto;
  }
 
  td {
-   border: 1px solid black;
+   border: 1px solid grey;
    padding: 10px;
+ }
+
+ .cool-grey {
+   background-color: #c4c4c4;
+ }
+
+ table {
+   background-color: #d6d6d6;
  }
 
  .admin-container {
@@ -354,7 +362,6 @@ margin: auto;
  }
 
  .table-admin {
-   border: 1px solid red;
    margin: auto;
    border-collapse: collapse;
    width: 60%;

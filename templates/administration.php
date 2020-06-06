@@ -11,11 +11,11 @@
 </div>
 <table class="table-admin">
     <tr>
-        <td>Titre</td>
-        <td>Contenu</td>
-        <td>Auteur</td>
-        <td>Date</td>
-        <td>Actions</td>
+        <td class="cool-grey">Titre</td>
+        <td class="cool-grey">Contenu</td>
+        <td class="cool-grey">Auteur</td>
+        <td class="cool-grey">Date</td>
+        <td class="cool-grey">Actions</td>
     </tr>
     <?php
     foreach ($articles as $article)
@@ -42,11 +42,11 @@
 </div>
 <table class="table-admin">
     <tr>
-        <td>Id</td>
-        <td>Pseudo</td>
-        <td>Message</td>
-        <td>Date</td>
-        <td>Actions</td>
+        <td class="cool-grey">Id</td>
+        <td class="cool-grey">Pseudo</td>
+        <td class="cool-grey">Message</td>
+        <td class="cool-grey">Date</td>
+        <td class="cool-grey">Actions</td>
     </tr>
     <?php
     foreach ($comments as $comment)
@@ -55,7 +55,7 @@
         <tr>
             <td><?= htmlspecialchars($comment->getId());?></td>
             <td><?= htmlspecialchars($comment->getPseudo());?></td>
-            <td><?= substr(htmlspecialchars($comment->getContent()), 0, 150);?></td>
+            <td><?= substr(htmlspecialchars($comment->getContent()), 0, 150);?> ... </td>
             <td>Créé le : <?= htmlspecialchars($comment->getCreatedAt());?></td>
             <td>
                 <a href="../public/index.php?route=unflagComment&commentId=<?= $comment->getId(); ?>">Désignaler le commentaire</a>
@@ -73,11 +73,11 @@
 </div>
 <table class="table-admin">
     <tr>
-        <td>Id</td>
-        <td>Pseudo</td>
-        <td>Date</td>
-        <td>Rôle</td>
-        <td>Actions</td>
+        <td class="cool-grey">Id</td>
+        <td class="cool-grey">Pseudo</td>
+        <td class="cool-grey">Date</td>
+        <td class="cool-grey">Rôle</td>
+        <td class="cool-grey">Actions</td>
     </tr>
     <?php
     foreach ($users as $user)
