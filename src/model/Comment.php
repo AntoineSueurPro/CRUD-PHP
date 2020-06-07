@@ -9,6 +9,15 @@ class Comment
     private $content;
     private $createdAt;
     private $flag;
+    private $avatar;
+
+    public function getAvatar() {
+      return $this->avatar;
+    }
+
+    public function setAvatar($avatar) {
+      $this->avatar = $avatar;
+    }
 
     public function isFlag() {
       return $this->flag;

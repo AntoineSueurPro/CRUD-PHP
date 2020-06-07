@@ -72,6 +72,8 @@ class UserDAO extends DAO {
   public function updateAvatar(Parameter $post, $pseudo) {
     $sql = 'UPDATE user SET avatar = ? WHERE pseudo = ?';
     $this->createQuery($sql,[file_get_contents($_FILES["image"]["tmp_name"]), $pseudo]);
+    $sql = 'UPDATE comment SET avatar = ? WHERE pseudo = ?';
+    $this->createQuery($sql,[file_get_contents($_FILES["image"]["tmp_name"]), $pseudo]);
   }
 
   public function getProfile($pseudo) {

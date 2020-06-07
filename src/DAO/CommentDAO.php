@@ -13,12 +13,13 @@ class CommentDAO extends DAO
         $comment->setContent($row['content']);
         $comment->setCreatedAt($row['createdAt']);
         $comment->setFlag($row['flag']);
+        $comment->setAvatar($row['avatar']);
         return $comment;
     }
 
     public function getCommentsFromArticle($articleId)
     {
-        $sql = 'SELECT id, pseudo, content, createdAt, flag FROM comment WHERE article_id = ? ORDER BY createdAt DESC';
+        $sql = 'SELECT id, pseudo, content, createdAt, flag, avatar FROM comment WHERE article_id = ? ORDER BY createdAt DESC';
         $result = $this->createQuery($sql, [$articleId]);
         $comments = [];
         foreach ($result as $row) {
@@ -29,9 +30,12 @@ class CommentDAO extends DAO
         return $comments;
     }
 
-    public function addComment(Parameter $post, $articleId) {
-      $sql = 'INSERT INTO comment (pseudo, content, createdAt, flag, article_id) VALUES (?,?,NOW(),?,?)';
-      $this->createQuery($sql, [$post->get('pseudo'), $post->get('content'), 0, $articleId]);
+    public function addComment(Parameter $post, $articleId, $pseudo) {
+      $sql = 'SELECT avatar AS avatar from user WHERE pseudo = ?';
+      $result = $this->createQuery($sql, [$pseudo]);
+      $avatar = $result->fetch();
+      $sql = 'INSERT INTO comment (pseudo, content, createdAt, flag, article_id, avatar) VALUES (?,?,NOW(),?,?,?)';
+      $this->createQuery($sql, [$post->get('pseudo'), $post->get('content'), 0, $articleId, $avatar['avatar']]);
     }
 
     public function deleteComment($commentId) {
@@ -45,7 +49,7 @@ class CommentDAO extends DAO
     }
 
     public function getFlagComments() {
-      $sql = 'SELECT id, pseudo, content, createdAt, flag FROM comment WHERE flag = ? ORDER BY createdAt DESC';
+      $sql = 'SELECT id, pseudo, content, createdAt, flag, avatar FROM comment WHERE flag = ? ORDER BY createdAt DESC';
       $result = $this->createQuery($sql,[1]);
       $comments = [];
       foreach ($result as $row) {

@@ -22,6 +22,10 @@ h1, h2 {
   margin-block-end: 0.1em;
 }
 
+.login {
+  color : #EE5A24;
+}
+
 /* HEADER*/
 
 .menu-logo-text-container {
@@ -39,7 +43,6 @@ h1, h2 {
   width: 100%;
 }
 .logo-texte-container {
-  border 1px solid red;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -79,10 +82,9 @@ h1, h2 {
 }
 
 .logo-image {
-  weight: 41px;
   height: 37px;
   display: flex;
-  margin:0;
+  margin-right: 7px;
   justify-content: center;
   align-items: center;
 }
@@ -121,6 +123,10 @@ h1, h2 {
 .date-author {
   font-size: 15px;
   font-weight: normal;
+}
+
+.article-title {
+  margin-bottom: 20px;
 }
 
 .article-content {
@@ -236,6 +242,10 @@ margin: auto;
   font-weight: bold;
   margin-bottom: 10px;
 }
+
+.avatar-comment {
+  height: 80vh;
+}
 .pack {
   height: 29.5vh;
 }
@@ -247,13 +257,52 @@ margin: auto;
 
 /* SECTION SINGLE */
 
-.comment-full-container {
+.comment-full {
+  width: 42%;
+  margin: auto;
+  flex-direction: column;
+}
+
+.container-test {
+  display: flex;
+  flex-direction: row;
+}
+.comment-date {
+  font-size: 12px;
+}
+.avatar-pseudo {
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.avatar {
+  height:80px;
+  width: 80px;
+}
+
+.avatar-comment {
   width: 100%;
+  height: 100%;
+}
+.pseudo {
+  text-align: center;
+}
+
+.comment-content-date {
+  width: 95%;
 }
 
 .comment-container {
 width: 42%;
 margin: auto;
+flex-direction: column;
+border: 1px solid red;
+}
+
+.max-container {
+  border: 1px solid red;
+  width: 70%;
 }
 
 .message {
@@ -384,3 +433,6 @@ margin: auto;
  .input {
    width: 40%;
  }
+div a {
+  color: black;
+}

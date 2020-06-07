@@ -1,14 +1,14 @@
 <?php $this->title = 'Mon profil'; ?>
   <?php  $avatar = $profile->getAvatar();
     if($avatar === '') { ?>
-      <style type="text/css">
+      <style>
       .avatar-image {
       background-image: url('../public/img/test.jpg');
       }
       </style>
   <?php  }
     else { ?>
-      <style type="text/css">
+      <style>
       .avatar-image {
       background-image: url(<?='"data:image/jpeg;base64,'.base64_encode( $profile->getAvatar()).'"'; ?>);
       }
@@ -17,7 +17,7 @@
 
 <section class="profile flex">
   <div class="titre-separateur flex">
-    <h1 class="titre-generique">Mon blog</h1>
+    <h1 class="titre-generique">Mon profil</h1>
     <div class="separateur flex"></div>
   </div>
   <div class="avatar-image flex"></div>
@@ -34,5 +34,6 @@
   <a href="../public/index.php?route=updatePassword"><div class="button_orange flex">Modifier mon mot de passe<br></div></a>
   <a href="../public/index.php?route=updateAvatar"><div class="button_orange flex">Modifier mon avatar<br></div></a>
   <a href="../public/index.php?route=deleteAccount"><div class="button_orange flex">Supprimer mon compte</div></a><br>
+</div>
   <a href="../public/index.php">Retour à l'accueil</a>
 </section>

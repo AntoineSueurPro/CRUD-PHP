@@ -14,14 +14,13 @@ class FrontController extends Controller {
     return $this->view->render('single', ['article' => $article, 'comments' => $comments]);
   }
 
-  public function addComment(Parameter $post, $articleId) {
+  public function addComment(Parameter $post, $articleId, $pseudo) {
 
     if($post->get('submit')) {
 
       $errors = $this->validation->validate($post, 'Comment');
       if(!$errors) {
-        $this->commentDAO->addComment($post, $articleId);
-        $this->session->set('add_comment', 'Commentaire ajouté <br/>');
+        $this->commentDAO->addComment($post, $articleId, $pseudo);
         header('Location: ../public/index.php?route=article&articleId='.$articleId);
       }
       $article = $this->articleDAO->getArticle($articleId);

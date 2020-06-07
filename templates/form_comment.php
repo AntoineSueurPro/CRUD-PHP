@@ -11,5 +11,5 @@ $submit = $route === 'addComment' ? 'Publier' : 'Mettre à jour';
 </form>
 <?php }
       else {?>
-        <p class="message">Veuillez vous connecter pour publier un commentaire !</p>
+        <p class="message">Veuillez vous <a class="no-link login" href="../public/index.php?route=login">connecter</a> pour publier un commentaire !</p>
         <?php } ?>

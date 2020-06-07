@@ -27,15 +27,21 @@ $nb = count(($comments))?>
           <h1 class="titre-generique">Commentaires <span class="light">(<?= $nb ?>)</span></h1>
           <div class="separateur flex"></div>
         </div>
-        <div class="comment-full-container">
+        <div class="comment-full flex">
           <?php if(count(($comments)) === 0) { ?>
           <div class="no-comment flex"><p>Il n'y a aucun commentaire. Soyez le premier à commenter !</p></div>
         <?php } else { ?>
-        <?php foreach ($comments as $comment) { ?>
-          <div class="comment-container flex">
-            <p><span class="pseudo" ><?= htmlspecialchars($comment->getPseudo());?></span><span class="date-comment"> - Posté le <?= htmlspecialchars($comment->getCreatedAt());?></span></p>
-            <div class="comment-content flex">
-              <div class="content-comment flex"><?= $comment->getContent() ?></div>
+          <?php foreach ($comments as $comment) { ?>
+          <div class="container-test">
+          <div class="avatar-pseudo">
+            <div class="avatar">  <?= '<img class="avatar-comment" alt="avatar" src ="data:image/jpeg;base64,'.base64_encode($comment->getAvatar()).'"/>';?></div>
+            <div class="pseudo"><span class="pseudo" ><?= htmlspecialchars($comment->getPseudo());?></span></div>
+          </div>
+
+          <div class="comment-content-date">
+            <div class="comment-content"><?= $comment->getContent() ?></div>
+            <div class="comment-date">Le - <?= htmlspecialchars($comment->getCreatedAt());?></div>
+            <div class="flag-comment">
               <?php
               if($comment->isFlag()) {
                 ?>
@@ -50,10 +56,12 @@ $nb = count(($comments))?>
               ?>
             </div>
           </div>
+        </div>
               <?php
             }
           }
             ?>
+            </div>
     <div class="post-comment flex">
         <div class="titre-separateur-2 flex">
           <h1>Publier un commentaire</h1>
