@@ -129,6 +129,7 @@ class BackController extends Controller {
   }
 
   public function updateAvatar(Parameter $post) {
+    if($this->checkLoggedIn()) {
       if ($post->get('submit')) {
         if(empty(@file_get_contents($_FILES['image']['tmp_name']))) {
           $errors = '<p class="red"> Image non valide </p>';
@@ -141,6 +142,10 @@ class BackController extends Controller {
 
     @$this->view->render('update_avatar', ['errors' => $errors]);
   }
+  else {
+    header('Location: ../public/index.php');
+  }
+}
 
   public function unflagComment($commentId) {
 
