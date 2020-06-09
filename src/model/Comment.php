@@ -1,5 +1,5 @@
 <?php
-
+//MODEL DE LA CLASS COMMENT
 namespace projet_4\src\model;
 
 class Comment

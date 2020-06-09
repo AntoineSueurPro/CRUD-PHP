@@ -1,4 +1,5 @@
 <?php
+//LE FRONTCONTROLLER - SERT A GERER LES FONCTIONNALITES UTILISATEUR LIE A LA VUE
 namespace projet_4\src\controller;
 use projet_4\config\Parameter;
 class FrontController extends Controller {
@@ -52,7 +53,6 @@ class FrontController extends Controller {
       if(!$errors) {
         $this->userDAO->register($post);
         $this->login($post);
-        $this->session->set('register', 'Inscription réussie');
       }
       return $this->view->render('register', ['post' => $post, 'errors' => $errors]);
     }
@@ -71,7 +71,7 @@ class FrontController extends Controller {
         header('Location: ../public/index.php');
       }
       else {
-        $this->session->set('error_login', 'Le pseudo ou le mot de passe sont incorrects');
+        $this->session->set('error_login', 'true');
         return $this->view->render('login', ['post' => $post]);
       }
     }

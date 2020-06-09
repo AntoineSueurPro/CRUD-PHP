@@ -1,4 +1,5 @@
 <?php
+//GERE LE PROCESSUS DE VALIDATION
 namespace projet_4\src\constraint;
 
 class Validation {

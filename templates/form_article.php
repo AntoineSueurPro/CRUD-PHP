@@ -10,7 +10,7 @@ $submit = $route === 'addArticle' ? 'Envoyer' : 'Mettre à jour';
     <label for="image">Choisir une image : </label>
     <input type="file" name="image"><br><br>
     <label for="content">Contenu</label><br>
-    <textarea id="content-article" name="content"><?= isset($post) ? htmlspecialchars($post->get('content')): ''; ?></textarea><br>
+    <textarea class="content-article" id="content-article" name="content"><?= isset($post) ? htmlspecialchars($post->get('content')): ''; ?></textarea><br>
     <?= isset($errors['content']) ? $errors['content'] : ''; ?>
     <input type="submit" value="<?= $submit; ?>" id="submit" name="submit"><br><br>
     <a href="../public/index.php">Retour à l'accueil</a>

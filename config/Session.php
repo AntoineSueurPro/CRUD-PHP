@@ -37,3 +37,5 @@ class Session {
     session_destroy();
   }
 }
+
+//PERMET DE GERER $_SESSION

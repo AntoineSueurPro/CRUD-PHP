@@ -1,5 +1,5 @@
 <?php
-
+// GERE LES ROUTES DE MON APPLICATION
 namespace projet_4\config;
 use projet_4\src\controller\BackController;
 use projet_4\src\controller\ErrorController;

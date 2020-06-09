@@ -1,4 +1,5 @@
 <?php
+//MODEL DE LA CLASS USER
 namespace projet_4\src\model;
 
 class User {

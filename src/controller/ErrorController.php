@@ -1,5 +1,5 @@
 <?php
-
+//CONTROLLER POUR LA GESTION DES ERREURS - RENVOI VERS LES PAGES D'ERREURS
 namespace projet_4\src\controller;
 
 class ErrorController extends Controller {

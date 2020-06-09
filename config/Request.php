@@ -24,3 +24,5 @@ class Request {
     return $this->session;
   }
 }
+
+// RECUPERE LES VARIABLES $_GET $_POST $_SESSION

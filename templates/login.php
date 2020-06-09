@@ -4,8 +4,11 @@
   <h1 class="titre-generique">Connexion</h1>
   <div class="separateur flex"></div>
 </div>
-<?= $this->session->show('error_login'); ?>
 <div class="log-form">
+  <?php if($this->session->get('error_login') === 'true') { ?>
+    <p class="red"> Mot de passe ou pseudo incorrect. </p>
+  <?php $this->session->set('error_login', 'false');
+ }; ?>
     <form method="post" action="../public/index.php?route=login">
         <label for="pseudo">Pseudo</label><br>
         <input class="cool-input push" type="text" id="pseudo" name="pseudo" value="<?= isset($post) ? htmlspecialchars($post->get('pseudo')): ''; ?>"><br>

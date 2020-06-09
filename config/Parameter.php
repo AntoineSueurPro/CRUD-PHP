@@ -23,3 +23,5 @@ class Parameter {
     return $this->parameter;
   }
 }
+
+//PERMET DE GERER LES VARIALBLES $_POST $_GET

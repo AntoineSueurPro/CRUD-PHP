@@ -1,4 +1,5 @@
 <?php
+//GERE LES CONTRAITES DE VALIDATION LIES AUX ARTICLES 
 namespace projet_4\src\constraint;
 use projet_4\config\Parameter;
 
