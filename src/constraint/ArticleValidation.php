@@ -1,5 +1,5 @@
 <?php
-//GERE LES CONTRAITES DE VALIDATION LIES AUX ARTICLES 
+//GERE LES CONTRAITES DE VALIDATION LIES AUX ARTICLES
 namespace projet_4\src\constraint;
 use projet_4\config\Parameter;
 
@@ -46,7 +46,7 @@ class ArticleValidation extends Validation {
     }
 
     if ($this->constraint->minLength($name, $value, 2)) {
-      return $this->constraint->minLenght('titre', $value, 2);
+      return $this->constraint->minLength('titre', $value, 2);
     }
 
     if ($this->constraint->maxLength($name, $value, 255)) {

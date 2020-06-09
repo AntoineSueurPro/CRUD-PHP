@@ -84,10 +84,14 @@ class BackController extends Controller {
     if($this->checkLoggedIn()) {
 
       if($post->get('submit')) {
+        $errors = $this->validation->validate($post, 'User');
+
+        if(!$errors) {
         $this->userDAO->updatePassword($post, $this->session->get('pseudo'));
-        $this->session->set('update_password', 'Mot de passe modifié <br/>');
         header('Location: ../public/index.php?route=profile');
       }
+      return $this->view->render('update_password', ['post' => $post, 'errors' => $errors]);
+    }
       return $this->view->render('update_password');
     }
     }
@@ -126,10 +130,16 @@ class BackController extends Controller {
 
   public function updateAvatar(Parameter $post) {
       if ($post->get('submit')) {
+        if(empty(@file_get_contents($_FILES['image']['tmp_name']))) {
+          $errors = '<p class="red"> Image non valide </p>';
+        }
+        else {
       $this->userDAO->updateAvatar($post, $this->session->get('pseudo'));
       header('Location: ../public/index.php?route=profile');
     }
-    return $this->view->render("update_avatar");
+  }
+
+    @$this->view->render('update_avatar', ['errors' => $errors]);
   }
 
   public function unflagComment($commentId) {

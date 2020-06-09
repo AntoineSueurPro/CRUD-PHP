@@ -7,8 +7,10 @@ $submit = $route === 'addArticle' ? 'Envoyer' : 'Mettre à jour';
     <label for="title">Titre</label><br><br>
     <input class="input flex" type="text" id="title" name="title" value="<?= isset($post) ? htmlspecialchars($post->get('title')): ''; ?>"></textarea><br>
     <?= isset($errors['title']) ? $errors['title'] : ''; ?><br>
-    <label for="image">Choisir une image : </label>
+    <label for="image">Choisir une image (taille max 1Mo) : </label>
+    <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
     <input type="file" name="image"><br><br>
+    <?= isset($errorImage) ? $errorImage : ''; ?> <br>
     <label for="content">Contenu</label><br>
     <textarea class="content-article" id="content-article" name="content"><?= isset($post) ? htmlspecialchars($post->get('content')): ''; ?></textarea><br>
     <?= isset($errors['content']) ? $errors['content'] : ''; ?>
