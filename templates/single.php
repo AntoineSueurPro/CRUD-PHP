@@ -34,7 +34,14 @@ $nb = count(($comments))?>
           <?php foreach ($comments as $comment) { ?>
           <div class="container-test">
           <div class="avatar-pseudo">
-            <div class="avatar">  <?= '<img class="avatar-comment" alt="avatar" src ="data:image/jpeg;base64,'.base64_encode($comment->getAvatar()).'"/>';?></div>
+            <div class="avatar">
+              <?php if($comment->getAvatar() === '') { ?>
+                      <img class="avatar-comment" alt="avatar" src ="../public/img/test.jpg"/>
+            <?php  }
+              else { ?>
+                <?= '<img class="avatar-comment" alt="avatar" src ="data:image/jpeg;base64,'.base64_encode($comment->getAvatar()).'"/>';?>
+            <?php  } ?>
+            </div>
             <div class="pseudo"><span class="pseudo" ><?= htmlspecialchars($comment->getPseudo());?></span></div>
           </div>
 
