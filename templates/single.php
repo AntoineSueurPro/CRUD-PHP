@@ -56,10 +56,12 @@ $nb = count(($comments))?>
                 <?php
               }
               else {
+                if($this->session->get('role')) {
                 ?>
                 <p><a class="read" href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
                 <?php
               }
+            }
               ?>
             </div>
           </div>
