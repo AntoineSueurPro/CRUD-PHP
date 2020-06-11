@@ -21,7 +21,8 @@ class View
         $content  = $this->renderFile($this->file, $data); //CONTENT SERA LES DONNEES DU TEMPLATE DEMANDE
         $view = $this->renderFile('../templates/base.php', [ //BASE.PHP EST LE TEMPLATE DE BASE QUI VA RECEVOIR LES DONNEES
             'content' => $content,
-            'session' =>$this->session
+            'session' =>$this->session,
+            'title' => $this->title
         ]);
         echo $view;
     }
