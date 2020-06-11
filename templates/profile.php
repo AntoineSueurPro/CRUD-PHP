@@ -3,7 +3,7 @@
     if($avatar === '') { ?>
       <style>
       .avatar-image {
-      background-image: url('../public/img/test.jpg');
+      background-image: url('../public/img/avatar.jpg');
       }
       </style>
   <?php  }

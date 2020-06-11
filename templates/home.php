@@ -32,7 +32,7 @@ if($fin > count(($tab))) {
         </div>
       <?php  $image = $article->getImage();
         if($image === '') { ?>
-          <div><img class="img" alt="image de présentation" src ="../public/img/test.jpg"/></div>
+          <div><img class="img" alt="image de présentation" src ="../public/img/article.jpg"/></div>
       <?php  }
         else { ?>
           <div><?= '<img class="img" alt="image de présentation" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>

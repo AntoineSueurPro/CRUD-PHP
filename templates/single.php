@@ -13,7 +13,7 @@ $nb = count(($comments))?>
     </div>
     <?php  $image = $article->getImage();
       if($image === '') { ?>
-        <div><img class="img" alt="image de présentation" src ="../public/img/test.jpg"/></div>
+        <div><img class="img" alt="image de présentation" src ="../public/img/article.jpg"/></div>
     <?php  }
       else { ?>
         <div><?= '<img class="img" alt="image de présentation" src ="data:image/jpeg;base64,'.base64_encode($article->getImage()).'"/>';?></div>
@@ -36,7 +36,7 @@ $nb = count(($comments))?>
           <div class="avatar-pseudo">
             <div class="avatar">
               <?php if($comment->getAvatar() === '') { ?>
-                      <img class="avatar-comment" alt="avatar" src ="../public/img/test.jpg"/>
+                      <img class="avatar-comment" alt="avatar" src ="../public/img/avatar.jpg"/>
             <?php  }
               else { ?>
                 <?= '<img class="avatar-comment" alt="avatar" src ="data:image/jpeg;base64,'.base64_encode($comment->getAvatar()).'"/>';?>
