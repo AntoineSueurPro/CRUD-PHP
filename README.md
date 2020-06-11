@@ -2,6 +2,21 @@
 
 Réalisation d'un CRUD en PHP
 
+Compétences :
+
+- Construction d'une base de données
+- Récupération des données d'une bdd
+- Insertion et modification des données d'une bdd
+- Gestion d'une session utilisateur
+- Récupération des données d'un formulaire utilisateur
+- Architecture MVC 
+- HTML/CSS - Flexbox
+- Responsive
+- PHP
+- SQL
+- POO
+
+
 Fonctionnalités : 
 
 - Création de billets
