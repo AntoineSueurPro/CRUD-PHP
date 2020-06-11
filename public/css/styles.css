@@ -302,6 +302,7 @@ border: 1px solid red;
 
 .content-article {
   font-family: Quicksand;
+  height: 70vh;
 }
 
 .max-container {

@@ -1,0 +1,4 @@
+RewriteEngine on
+Rewritecond %{HTTP_HOST} ^projet4.antoine-sueur.com
+Rewritecond %{REQUEST_URI} !^/public/
+Rewriterule ^(.*)$ /public/index.php
